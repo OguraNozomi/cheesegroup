@@ -18,9 +18,12 @@ Route::get('/', function () {
 });
 
 use App\Http\Controllers\Admin\TopicController;
-Route::controller(TopicController::class)->prefix('admin')->group(function() {
-    Route::get('topic/create', 'add')->middleware('auth');
+Route::controller(TopicController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function() {
+    Route::get('topic/create', 'add')->name('topic.add');
+    Route::post('topic/create', 'create')->name('topic.create');
 });
+
+
 
 
 Auth::routes();
