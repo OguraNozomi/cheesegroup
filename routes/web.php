@@ -19,8 +19,14 @@ Route::get('/', function () {
 
 use App\Http\Controllers\Admin\TopicController;
 Route::controller(TopicController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function() {
-    Route::get('topic/create', 'add')->name('topic.add');
-    Route::post('topic/create', 'create')->name('topic.create');
+Route::get('topic/create', 'add')->name('topic.add');
+Route::post('topic/create', 'create')->name('topic.create');
+Route::get('topic', 'index')->name('topic.index');
+Route::get('topic/edit', 'edit')->name('topic.edit');
+Route::post('topic/edit', 'update')->name('topic.update');
+Route::get('topic/delete', 'delete')->name('topic.delete');
+Route::post('topic', 'changeflag')->name('topic.changeflag');
+
 });
 
 
@@ -29,3 +35,5 @@ Route::controller(TopicController::class)->prefix('admin')->name('admin.')->midd
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
