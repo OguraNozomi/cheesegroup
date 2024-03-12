@@ -102,6 +102,7 @@ class TopicController extends Controller
         return view('admin.topic.edit', ['topic_form' => $topic]);
     }
 
+    //更新
     public function update(Request $request)
     {
         // Validationをかける
@@ -157,7 +158,7 @@ class TopicController extends Controller
         return redirect('admin/topic');
     }
 
-
+    //公開フラグ変更
     public function changeflag(Request $request)
     {
     
@@ -183,6 +184,7 @@ class TopicController extends Controller
 
         return redirect('admin/topic');
     }
+    
     //削除
      public function delete(Request $request)
     {

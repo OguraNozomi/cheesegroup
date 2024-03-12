@@ -29,8 +29,13 @@ Route::post('topic', 'changeflag')->name('topic.changeflag');
 
 });
 
-
-
+use App\Http\Controllers\TopicController as PublicTopicController;
+Route::get('/', [PublicTopicController::class, 'top'])->name('topic.top');
+Route::get('topic', [PublicTopicController::class, 'index'])->name('topic.index');
+Route::get('profile', [PublicTopicController::class, 'profile'])->name('topic.profile');
+Route::get('registration', [PublicTopicController::class, 'registration'])->name('topic.registration');
+Route::get('mail', [PublicTopicController::class, 'mail'])->name('topic.mail');
+Route::post('mail', [PublicTopicController::class, 'sendmail'])->name('topic.sendmail');
 
 Auth::routes();
 

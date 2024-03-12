@@ -28,7 +28,7 @@
         <div class="row">
             <div class="list-topic col-md-12 mx-auto">
                 <div class="row">
-                    <table class="table table-dark">
+                    <table class="table table-dark table-hover">
                         <thead>
                             <tr>
                                 <th width="5%">操作</th>
@@ -54,7 +54,7 @@
                                              <form action="{{ route('admin.topic.changeflag', ['id' => $topic->id]) }}" method="post" enctype="multipart/form-data">
                                                   @csrf
                                                   <?php if ($topic->release_flag == 0) { ?>
-                                                    <input type="submit" class="btn btn-primary" value="非公開">
+                                                    <input type="submit" class="btn btn-danger" value="非公開">
                                                     <?php }else{ ?>
                                                     <input type="submit" class="btn btn-primary" value="公開">
                                                     <?php } ?>
