@@ -10,9 +10,9 @@
                     <div class="post">
                         <div class="row">
                             <div class="text">
-                                 <div class="image text-right mt-4">
+                                <div class="image text-center mt-4">
                                 @if ($post->photo_1)
-                                    <img src="{{ secure_asset('storage/image/' . $post->photo_1) }}"
+                                    <img src="{{ secure_asset('storage/image/' . $post->photo_1) }}">
                                 @endif
                                 </div>
                                 <div class="title">

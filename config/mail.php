@@ -114,5 +114,9 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
-
+    
+    //追加
+    'sendto' => [
+        env('MAIL_USERNAME'),
+    ],
 ];

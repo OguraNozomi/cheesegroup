@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 // 追記
 use App\Models\Topic;
 
+use App\Mail\Notification;
+use Illuminate\Support\Facades\Mail;
+
 class TopicController extends Controller
 {
     //top
@@ -59,7 +62,14 @@ class TopicController extends Controller
     //問い合わせ送信
      public function sendmail(Request $request)
     {
+        $name = $request->get('name');
+        $email =  $request->get('email');
+        $subject = $request->get('subject');
+        $body = $request->get('body');
+        $mail_to = config('mail.sendto');
         
-         return view('topic.top');
+        Mail::to($mail_to)->send(new Notification($name, $email, $subject, $body) );
+        
+         return redirect('/');
     }
 }
